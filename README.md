@@ -15,6 +15,30 @@ To implement univariate Linear Regression to fit a straight line using least squ
 6.	Obtain the straight line equation Y=mX+b and plot the scatterplot.
 ## Program
 ```
+# Univariate Linear Regression without libraries
+# y = m*x + c
+
+
+
+# Step 1: Calculate means
+n = len(x)
+mean_x = sum(x) / n
+mean_y = sum(y) / n
+
+# Step 2: Calculate slope (m) and intercept (c)
+numerator = sum([(x[i] - mean_x) * (y[i] - mean_y) for i in range(n)])
+denominator = sum([(x[i] - mean_x) ** 2 for i in range(n)])
+m = numerator / denominator
+c = mean_y - m * mean_x
+
+# Step 3: Predict values
+y_pred = [m * xi + c for xi in x]
+
+# Step 4: Print results
+print("Slope (m):", m)
+print("Intercept (c):", c)
+print("Predicted values:", y_pred)
+
 
 
 
@@ -23,8 +47,14 @@ To implement univariate Linear Regression to fit a straight line using least squ
 
 ```
 ## Output
-</br>
-</br>
+</br> x = [1, 2, 3, 4, 5]
+y = [2, 4, 5, 4, 5]
+
+</br> Slope (m): 0.6
+Intercept (c): 2.2
+Predicted values: [2.8, 3.4, 4.0, 4.6, 5.2]
+
+
 </br>
 </br>
 
